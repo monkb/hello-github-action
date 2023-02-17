@@ -23,6 +23,7 @@ async function run(){
 
   debug(`owner: ${owner} repo: ${repo}`);
   debug(JSON.stringify(payload));
+  debug(github.context.issue.number.toString())
 }
 
 (async ()=>{
