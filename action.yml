@@ -1,8 +1,11 @@
-name: 'Hello monkb action'
-description: 'A GitHub action to say hello'
+name: 'Parse jira issue keys from git commits when pushed'
+description: 'Github Action to extract jira keys from commit messages and output in comma delimited format.'
 outputs:
   issueKeys:
     description: 'Jira keys that were found in input string(commit-message) in commad delimited format'
 runs:
   using: 'node16'
   main: 'index.js'
+branding:
+  icon: 'check'
+  color: 'green'
