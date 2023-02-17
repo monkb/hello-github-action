@@ -1,6 +1,6 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
-import * as _ from 'lodash';
+import _ from 'lodash';
 import {debug} from "@actions/core";
 
 function parseCommits(commits) {
