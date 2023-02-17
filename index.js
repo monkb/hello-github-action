@@ -30,6 +30,7 @@ async function run() {
 
   debug(`owner: ${owner} repo: ${repo}`);
   debug(JSON.stringify(payload));
+  debug(`commit length : ${commits.length}`);
 
   const issueKeys = parseCommits(commits);
 
