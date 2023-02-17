@@ -3,5 +3,6 @@
   "packageManager": "yarn@3.4.1",
   "dependencies": {
     "@actions/core": "^1.10.0"
-  }
+  },
+  "type": "module"
 }

@@ -1,5 +1,6 @@
 name: 'Hello monkb action'
 description: 'A GitHub action to say hello'
+Icon: 'check'
 runs:
   using: 'node16'
   main: 'index.js'
