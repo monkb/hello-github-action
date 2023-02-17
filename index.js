@@ -8,7 +8,7 @@ async function run(){
   core.setCommandEcho(true);
 
   debug('Hello World');
-  debug(GITHUB_TOKEN);
+  debug(token);
 
   const octokit = new Octokit({
     auth: token
