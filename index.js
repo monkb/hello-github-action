@@ -1,10 +1,20 @@
 import * as core from '@actions/core';
+
 import {debug} from "@actions/core";
 
-function run(){
+async function run(){
+  const token = process.env.GITHUB_TOKEN
+
   core.setCommandEcho(true);
 
   debug('Hello World');
+  debug(GITHUB_TOKEN);
+
+  const octokit = new Octokit({
+    auth: token
+  })
 }
 
-run()
+(async ()=>{
+  await run();
+})()
