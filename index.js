@@ -20,9 +20,9 @@ async function run(){
 
   const owner = payload.repository.owner.login;
   const repo = payload.repository.name;
-  const pr = payload.pull_request.number;
 
-  debug(`owner: ${owner} repo: ${repo} pr: ${pr}`);
+  debug(`owner: ${owner} repo: ${repo}`);
+  debug(JSON.stringify(payload));
 }
 
 (async ()=>{
