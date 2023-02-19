@@ -1,10 +1,29 @@
 import * as core from '@actions/core';
 import * as github from '@actions/github';
+import {Octokit} from '@octokit/rest';
 import _ from 'lodash';
 import {debug} from "@actions/core";
 
+async function getCommits(payload, token) {
+  if (!payload.commits) {
+    return [];
+  }
+  if (payload.commits.length < 20) {
+    return payload.commits;
+  }
+
+  const {data: commits} = await new Octokit({auth: token}).repos.compareCommits({
+    owner: payload.repository.owner.login,
+    repo: payload.repository?.name,
+    base: payload.before,
+    head: payload.after,
+  });
+
+  return commits;
+}
+
 function parseCommits(commits) {
-  if (!commits) return '';
+  if (!commits || commits.length === 0) return '';
 
   const jiraIssueKeyRegex = /([A-Za-z]{2,10}-[0-9]{1,5})/g;
 
@@ -26,7 +45,8 @@ async function run() {
 
   const owner = payload.repository.owner.login;
   const repo = payload.repository?.name;
-  const commits = payload?.commits;
+
+  const commits = await getCommits(payload, token);
 
   debug(`owner: ${owner} repo: ${repo}`);
   debug(JSON.stringify(payload));
