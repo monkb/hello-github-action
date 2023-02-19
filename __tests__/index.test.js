@@ -86,6 +86,7 @@ describe('', () => {
   });
 
   it('when commits are more than 20', async function () {
+
     github.context.payload = {
       repository: {
         owner: {
@@ -106,71 +107,51 @@ describe('', () => {
           compareCommits: ({}) => {
             return {
               // length 21
-              data: [
-                {
-                message: 'lorem ipsum LOIP-1',
-              },
-                {
-                  message: 'lorem ipsum LOIP-2',
-                },
-                {
-                  message: 'lorem ipsum LOIP-3',
-                },
-                {
-                  message: 'lorem ipsum LOIP-4',
-                },
-                {
-                  message: 'lorem ipsum LOIP-5',
-                },
-                {
-                  message: 'lorem ipsum LOIP-6',
-                },
-                {
-                  message: 'lorem ipsum LOIP-7',
-                },
-                {
-                  message: 'lorem ipsum LOIP-8',
-                },
-                {
-                  message: 'lorem ipsum LOIP-9',
-                },
-                {
-                  message: 'lorem ipsum LOIP-10',
-                },
-                {
-                  message: 'lorem ipsum LOIP-11',
-                },
-                {
-                  message: 'lorem ipsum LOIP-12',
-                },
-                {
-                  message: 'lorem ipsum LOIP-13',
-                },
-                {
-                  message: 'lorem ipsum LOIP-14',
-                },
-                {
-                  message: 'lorem ipsum LOIP-15',
-                },
-                {
-                  message: 'lorem ipsum LOIP-16',
-                },
-                {
-                  message: 'lorem ipsum LOIP-17',
-                },
-                {
-                  message: 'lorem ipsum LOIP-18',
-                },
-                {
-                  message: 'lorem ipsum LOIP-19',
-                },
-                {
-                  message: 'lorem ipsum LOIP-20',
-                },
-                {
-                  message: 'lorem ipsum LOIP-21',
-                }
-              ]
+              data: {
+                commits: [{
+                  commit: {message: 'lorem ipsum LOIP-1',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-2',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-3',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-4',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-5',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-6',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-7',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-8',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-9',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-10',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-11',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-12',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-13',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-14',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-15',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-16',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-17',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-18',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-19',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-20',}
+                }, {
+                  commit: {message: 'lorem ipsum LOIP-21',}
+                }]
+              }
             }
           }
         }

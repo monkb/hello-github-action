@@ -12,14 +12,14 @@ async function getCommits(payload, token) {
     return payload.commits;
   }
 
-  const {data: commits} = await new Octokit({auth: token}).repos.compareCommits({
+  const {data} = await new Octokit({auth: token}).repos.compareCommits({
     owner: payload.repository.owner.login,
     repo: payload.repository?.name,
     base: payload.before,
     head: payload.after,
   });
 
-  return commits;
+  return data.commits.map(commit=>commit.commit);
 }
 
 function parseCommits(commits) {
@@ -37,6 +37,7 @@ function parseCommits(commits) {
 }
 
 async function run() {
+  debug('Starting action');
   const token = process.env.GITHUB_TOKEN;
 
   const {payload} = github.context;
